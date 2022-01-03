@@ -2,13 +2,7 @@ import {ReactElement} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 
 /* styles and ant design */
-import {
-  Logostyles,
-  LogoContainer,
-  MainLayout,
-  Siderstyles,
-  Headerstyles,
-} from './styled';
+import {Logostyles, LogoContainer, MainLayout, Siderstyles} from './styled';
 import {Layout} from 'antd';
 
 /* helpers */
@@ -17,9 +11,10 @@ import {MENUS} from 'utils/constants';
 /* components */
 import Menus from 'components/Menus';
 import Logo from 'assets/images/main-logo.png';
+import ComponentHeader from 'components/Header';
 import ComponentContent from 'navigations';
 
-const {Header, Sider, Content} = Layout;
+const {Sider, Content} = Layout;
 
 const ComponentLayout = (): ReactElement => {
   return (
@@ -31,9 +26,8 @@ const ComponentLayout = (): ReactElement => {
           </div>
           <Menus menus={MENUS} />
         </Sider>
-
         <Layout style={{padding: 21}}>
-          <Header style={Headerstyles}>Header</Header>
+          <ComponentHeader />
           <Content>
             <ComponentContent />
           </Content>

@@ -14,7 +14,7 @@ const Navigation = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/desktop" element={<Desktop />} />
+      <Route path="/website" element={<Desktop />} />
       <Route path="/mobile" element={<Mobile />} />
       <Route path="/support" element={<Support />} />
       <Route path="/asset-manager" element={<AssetManager />} />

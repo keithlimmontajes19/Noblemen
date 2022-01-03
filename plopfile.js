@@ -14,7 +14,7 @@ module.exports = function (plop) {
         default: 'components',
         choices: [
           'components',
-          'composition',
+          'compositions',
           'navigations',
           'views/public',
           'views/private',

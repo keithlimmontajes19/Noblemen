@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
 import App from './App';
+import '@coreui/coreui/dist/css/coreui.min.css';
+import 'antd/dist/antd.css';
 
 ReactDOM.render(
   <React.StrictMode>

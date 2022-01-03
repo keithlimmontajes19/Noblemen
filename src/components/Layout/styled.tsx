@@ -15,4 +15,3 @@ export const LogoContainer = {
 
 export const MainLayout = {minHeight: '100vh'};
 export const Siderstyles = {background: theme.WHITE};
-export const Headerstyles = {background: theme.WHITE, borderRadius: 6};

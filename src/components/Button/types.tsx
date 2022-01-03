@@ -1,3 +1,6 @@
 export type PropsType = {
-  testID?: string,
+  testID?: string;
+  title?: string;
+  icon?: any;
+  width?: number;
 };
