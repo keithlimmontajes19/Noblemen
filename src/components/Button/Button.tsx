@@ -6,12 +6,13 @@ import {theme} from 'utils/colors';
 import Label from 'components/Label';
 
 const Button = (props: PropsType): ReactElement => {
-  const {icon, title = '', width = 101} = props;
+  const {icon, title = ''} = props;
+
   return (
-    <StyledButton>
+    <StyledButton {...props}>
       <div>
         <span>{icon && icon}</span>
-        <StyledText btnWidth={width}>{title}</StyledText>
+        <StyledText>{title}</StyledText>
       </div>
     </StyledButton>
   );

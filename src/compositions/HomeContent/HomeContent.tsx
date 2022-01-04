@@ -30,6 +30,8 @@ import Button from 'components/Button';
 const {Panel} = Collapse;
 
 const HomeContent = (props: PropsType): ReactElement => {
+  const {setVisible, setVisible2, setVisible3} = props;
+
   const Header = (title: string) => {
     return <StyledAccordion>{title}</StyledAccordion>;
   };
@@ -47,6 +49,7 @@ const HomeContent = (props: PropsType): ReactElement => {
                 <FlexContainer>
                   <StyledText3>Complete your Project Brief</StyledText3>
                   <Button
+                    onClick={() => setVisible(true)}
                     title="Start"
                     icon={
                       <Edit
@@ -64,6 +67,7 @@ const HomeContent = (props: PropsType): ReactElement => {
                     Provide your logos, icons, images, and color palette
                   </StyledText3>
                   <Button
+                    onClick={() => setVisible2(true)}
                     title="Start"
                     icon={
                       <Edit
@@ -79,6 +83,7 @@ const HomeContent = (props: PropsType): ReactElement => {
                 <FlexContainer>
                   <StyledText3>Complete your Visual Voice guide</StyledText3>
                   <Button
+                    onClick={() => setVisible3(true)}
                     title="Start"
                     icon={
                       <Edit

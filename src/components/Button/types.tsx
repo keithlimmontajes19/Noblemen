@@ -3,4 +3,5 @@ export type PropsType = {
   title?: string;
   icon?: any;
   width?: number;
+  onClick?: any;
 };

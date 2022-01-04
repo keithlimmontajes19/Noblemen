@@ -1,6 +1,5 @@
 export type PropsType = {
   testID?: string;
+  visible: boolean;
   setVisible?: any;
-  setVisible2?: any;
-  setVisible3?: any;
 };
