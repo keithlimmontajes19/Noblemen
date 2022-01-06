@@ -14,10 +14,10 @@ import {theme} from 'utils/colors';
 
 /* component */
 import Logo from 'assets/images/main-logo.png';
-import LoginLogo from 'assets/images/login-logo.png';
-import LoginForm from 'compositions/LoginForm';
+import ForgotLogo from 'assets/images/forgot-logo.png';
+import ForgotForm from 'compositions/ForgotForm';
 
-const Login = (): ReactElement => {
+const ForgotPassword = (): ReactElement => {
   return (
     <Container>
       <Row gutter={24} style={RowContainer}>
@@ -31,16 +31,16 @@ const Login = (): ReactElement => {
                 alignSelf: 'center',
                 marginLeft: 50,
               }}>
-              <img src={LoginLogo} style={SublogoStyles} />
+              <img src={ForgotLogo} style={SublogoStyles} />
             </div>
           </SubLogoContainer>
         </Col>
         <Col span={7}>
-          <LoginForm />
+          <ForgotForm />
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default Login;
+export default ForgotPassword;

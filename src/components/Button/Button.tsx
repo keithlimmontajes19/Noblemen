@@ -11,7 +11,7 @@ const Button = (props: PropsType): ReactElement => {
   return (
     <StyledButton {...props}>
       <div>
-        <span>{icon && icon}</span>
+        {icon && <span style={{marginRight: 8}}>{icon}</span>}
         <StyledText>{title}</StyledText>
       </div>
     </StyledButton>

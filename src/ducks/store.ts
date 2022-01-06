@@ -9,9 +9,12 @@ const sagaMiddleware = createSagaMiddleware();
 const middlewares = [sagaMiddleware];
 const store = createStore(
   rootReducers,
-  applyMiddleware(logger, ...middlewares),
+  applyMiddleware(...middlewares),
 );
 
 sagaMiddleware.run(rootSaga);
 
 export default store;
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = ReturnType<typeof store.dispatch>;

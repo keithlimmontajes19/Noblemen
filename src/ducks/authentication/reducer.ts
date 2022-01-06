@@ -1,32 +1,32 @@
-import {TYPES} from './actionTypes';
+import { TYPES } from './actionTypes';
 
 const INITIAL_STATE = {
-  data: [],
   error: false,
   loading: false,
+  authenticated: false,
 };
 
-const reducer = (state = INITIAL_STATE, action: any) => {
+const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case TYPES.GET_AUTHENTICATION_REQUEST:
       return {
-        data: [],
         error: false,
         loading: true,
+        authenticated: false
       };
 
     case TYPES.GET_AUTHENTICATION_SUCCESS:
       return {
-        data:action.payload,
         error: false,
         loading: false,
+        authenticated: true
       };
 
     case TYPES.GET_AUTHENTICATION_FAILED:
       return {
-        data: [],
         error: true,
         loading: false,
+        authenticated: false
       };
 
     default:

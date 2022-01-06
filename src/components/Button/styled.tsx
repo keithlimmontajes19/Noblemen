@@ -9,10 +9,10 @@ export const StyledButton = styled.button.attrs<any>((props) => ({
   border-radius: 5px;
   border-color: #7890ff;
   padding: 5px;
-  width: ${(props: any) => props.width}px;
+  width: ${(props: any) => props.width}${(props: any) => (typeof props.width === 'number' ? 'px' : '')};
 `;
 
-export const StyledText = styled.span<any>`
+export const StyledText = styled.span`
   font-family: Didact Gothic;
   font-style: normal;
   font-weight: normal;
@@ -21,5 +21,4 @@ export const StyledText = styled.span<any>`
   text-align: center;
   letter-spacing: 0.4px;
   color: #ffffff;
-  margin-left: 8px;
 `;

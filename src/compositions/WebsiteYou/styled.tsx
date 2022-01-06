@@ -8,11 +8,11 @@ export const InputStyled = styled.input`
   width: 400px;
 `;
 
-export const LabelStyled = styled.span`
+export const LabelStyled = styled.span<any>`
   font-family: Raleway;
   font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
+  font-weight: ${(props) => (props.bold ? props.bold : 'normal')}px;
+  font-size: ${(props) => (props.size ? props.size : '14')}px;
   line-height: 20px;
   color: #5e5873;
 `;
