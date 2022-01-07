@@ -1,6 +1,11 @@
 import { TYPES } from './actionTypes'
 
-export const postLogin = (payload) => ({
+type loginTypes = {
+    email: 'string',
+    password: 'string'
+}
+
+export const postLogin = (payload: loginTypes) => ({
     type: TYPES.GET_AUTHENTICATION_REQUEST,
     payload
 })

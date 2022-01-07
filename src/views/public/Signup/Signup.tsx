@@ -35,7 +35,7 @@ const Signup = (): ReactElement => {
             </div>
           </SubLogoContainer>
         </Col>
-        <Col span={7}>
+        <Col span={8}>
           <SignupForm />
         </Col>
       </Row>

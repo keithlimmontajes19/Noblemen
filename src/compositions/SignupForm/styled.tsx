@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {Input, Button} from 'antd';
 
 export const Container = styled.div`
-  margin-top: 150px;
+  margin-top: 100px;
   align-content: center;
   align-items: center;
   padding: 30px;
@@ -10,6 +10,11 @@ export const Container = styled.div`
 `;
 
 export const StyledInput = styled(Input)`
+  border: 1px solid #d8d6de;
+  border-radius: 6px;
+`;
+
+export const StyledPassword = styled(Input.Password)`
   border: 1px solid #d8d6de;
   border-radius: 6px;
 `;

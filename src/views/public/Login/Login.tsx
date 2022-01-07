@@ -35,7 +35,7 @@ const Login = (): ReactElement => {
             </div>
           </SubLogoContainer>
         </Col>
-        <Col span={7}>
+        <Col span={8}>
           <LoginForm />
         </Col>
       </Row>

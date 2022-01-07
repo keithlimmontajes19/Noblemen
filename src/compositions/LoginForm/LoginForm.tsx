@@ -1,4 +1,4 @@
-import {ReactElement, useState} from 'react';
+import {ReactElement, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
 /* styles antd */
@@ -15,20 +15,42 @@ import {
 import {LabelStyled} from 'compositions/WebsiteYou/styled';
 import {EyeInvisibleOutlined, EyeTwoTone} from '@ant-design/icons';
 
-/* redux actions */
-import {useDispatch} from 'react-redux';
+/* redux actions helpers */
+import {useSelector, useDispatch} from 'react-redux';
 import {postLogin} from 'ducks/authentication/actionCreator';
+import {RootState} from 'ducks/store';
+import {rulesConfig} from 'utils/helpers';
 
 const LoginForm = (): ReactElement => {
   const dispatch = useDispatch();
-  const [credentials, setCredentials] = useState({
-    username: '',
-    password: '',
-  });
+  const [form] = Form.useForm();
+  const {data}: any = useSelector<RootState>((state) => state.authentication);
 
-  const handlesubmit = () => {
-    dispatch(postLogin(credentials));
+  const handlesubmit = (values: any) => {
+    dispatch(postLogin(values));
   };
+
+  const setFormFields = (field: string, errors: string) => {
+    form.setFields([
+      {
+        name: field,
+        errors: [errors],
+      },
+    ]);
+  };
+
+  useEffect(() => {
+    const email = form.getFieldValue('email');
+    const password = form.getFieldValue('password');
+
+    if (data?.code === 109 && email.length) {
+      setFormFields('email', data?.message);
+    }
+
+    if (data?.code === 108 && password.length) {
+      setFormFields('password', data?.message);
+    }
+  }, [data]);
 
   return (
     <Container>
@@ -42,26 +64,37 @@ const LoginForm = (): ReactElement => {
         </LabelStyled>
       </SubtitledContainer>
 
-      <Form layout="vertical">
-        <Form.Item label={<LabelStyled>Email</LabelStyled>}>
+      <Form
+        form={form}
+        layout="vertical"
+        requiredMark={false}
+        onFinish={handlesubmit}
+        initialValues={{
+          email: '',
+          password: '',
+        }}>
+        <Form.Item
+          name="email"
+          rules={rulesConfig('Email is required.')}
+          label={<LabelStyled>Email</LabelStyled>}>
           <StyledInput
+            type="email"
             size="large"
             placeholder="Input Email"
-            onChange={(e) =>
-              setCredentials({...credentials, username: e.target.value})
-            }
+            onChange={() => setFormFields('email', '')}
           />
         </Form.Item>
 
-        <Form.Item label={<LabelStyled>Password</LabelStyled>}>
+        <Form.Item
+          name="password"
+          rules={rulesConfig('Password is required.')}
+          label={<LabelStyled>Password</LabelStyled>}>
           <StyledPassword
             size="large"
             placeholder="Input Password"
+            onChange={() => setFormFields('password', '')}
             iconRender={(visible) =>
               visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-            }
-            onChange={(e) =>
-              setCredentials({...credentials, password: e.target.value})
             }
           />
         </Form.Item>
@@ -72,7 +105,7 @@ const LoginForm = (): ReactElement => {
           </StyledTextlink>
         </LabelStyled>
 
-        <StyledButton size="large" onClick={handlesubmit}>
+        <StyledButton size="large" onClick={() => form.submit()}>
           Sign In
         </StyledButton>
 
