@@ -7,5 +7,7 @@ export const theme = {
     ICONS: '#6E6B7B',
     SUB_BLUE: '#7890FF',
     MODAL: '#e9e9e9',
-    LOGIN_LAYOUT: '#f8f8f8'
+    LOGIN_LAYOUT: '#f8f8f8',
+    LOGIN_ALERT: '#eeedfd',
+    LOGIN_ALERT_FONT: '#7367f0'
 }

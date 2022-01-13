@@ -13,9 +13,21 @@ import {
 } from './styled';
 import {LabelStyled} from 'compositions/WebsiteYou/styled';
 import {ChevronLeft} from 'react-feather';
+import {rulesConfig} from 'utils/helpers';
+
+import {useDispatch} from 'react-redux';
+import {forgotPassword} from 'ducks/authentication/actionCreator';
 
 /* redux actions */
 const ForgotForm = (): ReactElement => {
+  const dispatch = useDispatch();
+
+  const [form] = Form.useForm();
+
+  const handlesubmit = (values: any) => {
+    dispatch(forgotPassword(values));
+  };
+
   return (
     <Container>
       <LabelStyled size={22}>
@@ -29,12 +41,24 @@ const ForgotForm = (): ReactElement => {
         </LabelStyled>
       </SubtitledContainer>
 
-      <Form layout="vertical">
-        <Form.Item label={<LabelStyled>Email</LabelStyled>}>
+      <Form
+        form={form}
+        layout="vertical"
+        requiredMark={false}
+        onFinish={handlesubmit}
+        initialValues={{
+          email: '',
+        }}>
+        <Form.Item
+          rules={rulesConfig()}
+          name="email"
+          label={<LabelStyled>Email</LabelStyled>}>
           <StyledInput placeholder="Input Email" size="large" />
         </Form.Item>
 
-        <StyledButton size="large">Send reset link</StyledButton>
+        <StyledButton size="large" onClick={() => form.submit()}>
+          Send reset link
+        </StyledButton>
 
         <SignupContainer>
           <LabelStyled>

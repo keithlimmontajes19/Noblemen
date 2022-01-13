@@ -1,5 +1,6 @@
 import {ReactElement, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import type {PropsType} from './types';
 
 /* styles antd */
 import {Form} from 'antd';
@@ -11,6 +12,7 @@ import {
   SignupContainer,
   SubtitledContainer,
   StyledPassword,
+  AlertContainer,
 } from './styled';
 import {LabelStyled} from 'compositions/WebsiteYou/styled';
 import {EyeInvisibleOutlined, EyeTwoTone} from '@ant-design/icons';
@@ -20,13 +22,16 @@ import {useSelector, useDispatch} from 'react-redux';
 import {postLogin} from 'ducks/authentication/actionCreator';
 import {RootState} from 'ducks/store';
 import {rulesConfig} from 'utils/helpers';
+import {theme} from 'utils/colors';
 
-const LoginForm = (): ReactElement => {
+const LoginForm = (props: PropsType): ReactElement => {
+  const {type, details} = props;
+
   const dispatch = useDispatch();
   const [form] = Form.useForm();
   const {data}: any = useSelector<RootState>((state) => state.authentication);
 
-  const handlesubmit = (values: any) => {
+  const handlesubmit = (values: never) => {
     dispatch(postLogin(values));
   };
 
@@ -43,7 +48,10 @@ const LoginForm = (): ReactElement => {
     const email = form.getFieldValue('email');
     const password = form.getFieldValue('password');
 
-    if (data?.code === 109 && email.length) {
+    if (
+      (data?.code === 109 || data?.code === 112 || data?.code === 107) &&
+      email.length
+    ) {
       setFormFields('email', data?.message);
     }
 
@@ -63,6 +71,18 @@ const LoginForm = (): ReactElement => {
           Please sign-in to your account and start the adventure
         </LabelStyled>
       </SubtitledContainer>
+
+      {type && (
+        <AlertContainer>
+          <LabelStyled color={theme.LOGIN_ALERT_FONT} bold="600" size={12}>
+            {details?.title}:
+          </LabelStyled>
+          <br />
+          <LabelStyled color={theme.LOGIN_ALERT_FONT} size={12}>
+            {details?.message}
+          </LabelStyled>
+        </AlertContainer>
+      )}
 
       <Form
         form={form}

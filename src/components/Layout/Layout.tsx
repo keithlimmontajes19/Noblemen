@@ -1,9 +1,10 @@
 import {ReactElement, useEffect} from 'react';
-import {BrowserRouter} from 'react-router-dom';
+import {Router} from 'react-router-dom';
 
-/* styles */
+/* styles utils*/
 import {} from './styled';
 import {notificationAlert} from 'utils/alerts';
+import history from 'utils/history';
 
 /* components */
 import MainLayout from 'views/private/MainLayout';
@@ -12,6 +13,7 @@ import LoginLayout from 'views/public/LoginLayout';
 /* reducer action */
 import {useSelector, useDispatch} from 'react-redux';
 import {RootState} from 'ducks/store';
+import {checkTokenUser} from 'ducks/authentication/actionCreator';
 import {closeNotification} from 'ducks/alert/actionCreator';
 
 const ComponentLayout = (): ReactElement => {
@@ -25,10 +27,14 @@ const ComponentLayout = (): ReactElement => {
       );
   }, [alert]);
 
+  useEffect(() => {
+    // dispatch(checkTokenUser());
+  }, []);
+
   return (
-    <BrowserRouter>
+    <Router history={history}>
       {authentication.authenticated ? <MainLayout /> : <LoginLayout />}
-    </BrowserRouter>
+    </Router>
   );
 };
 

@@ -11,8 +11,9 @@ export const InputStyled = styled.input`
 export const LabelStyled = styled.span<any>`
   font-family: Raleway;
   font-style: normal;
-  font-weight: ${(props) => (props.bold ? props.bold : 'normal')}px;
+  font-weight: ${(props) => (props.bold ? props.bold : 'normal')};
   font-size: ${(props) => (props.size ? props.size : '14')}px;
   line-height: 20px;
-  color: #5e5873;
+  color: ;
+  ${(props) => (props.color ? props.color : '#5e5873')};
 `;

@@ -4,7 +4,8 @@ const INITIAL_STATE = {
   error: false,
   loading: false,
   authenticated: false,
-  data: {}
+  data: {},
+  password_change: 0
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -31,6 +32,15 @@ const reducer = (state = INITIAL_STATE, action) => {
         error: true,
         loading: false,
         authenticated: false
+      };
+
+
+    case TYPES.CHANGE_PASSWORD_SUCCESS:
+    case TYPES.CHANGE_PASSWORD_FAILED:
+      return {
+        ...state,
+        authenticated: false,
+        password_change: action.payload
       };
 
     default:

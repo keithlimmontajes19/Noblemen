@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 
 import Home from 'views/private/Home';
 import Desktop from 'views/private/Desktop';
@@ -11,16 +11,17 @@ import Account from 'views/private/Account';
 
 const Navigation = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/website" element={<Desktop />} />
-      <Route path="/mobile" element={<Mobile />} />
-      <Route path="/support" element={<Support />} />
-      <Route path="/asset-manager" element={<AssetManager />} />
-      <Route path="/invoices" element={<Invoices />} />
-      <Route path="/account" element={<Account />} />
-    </Routes>
+    <Switch>
+      <Route path="/" component={Home} />
+      <Route path="/home" component={Home} />
+      <Route path="/website" component={Desktop} />
+      <Route path="/mobile" component={Mobile} />
+      <Route path="/support" component={Support} />
+      <Route path="/asset-manager" component={AssetManager} />
+      <Route path="/invoices" component={Invoices} />
+      <Route path="/account" component={Account} />
+      <Redirect to="/" />
+    </Switch>
   );
 };
 

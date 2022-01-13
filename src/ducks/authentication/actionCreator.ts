@@ -14,3 +14,17 @@ export const postSignup = (payload) => ({
     type: TYPES.POST_SIGNUP_REQUEST,
     payload
 })
+
+export const checkTokenUser = () => ({
+    type: TYPES.TOKEN_CHECKER_REQUEST,
+})
+
+export const changePassword = (payload) => ({
+    type: TYPES.CHANGE_PASSWORD_REQUEST,
+    payload
+})
+
+export const forgotPassword = (payload) => ({
+    type: TYPES.FORGOT_PASSWORD_REQUEST,
+    payload
+})

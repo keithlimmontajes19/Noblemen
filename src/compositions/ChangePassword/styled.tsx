@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import {theme} from 'utils/colors';
 import {Input, Button} from 'antd';
 
 export const Container = styled.div`
-  margin-top: 150px;
+  margin-top: 250px;
   align-content: center;
   align-items: center;
   padding: 30px;
@@ -11,11 +10,6 @@ export const Container = styled.div`
 `;
 
 export const StyledInput = styled(Input)`
-  border: 1px solid #d8d6de;
-  border-radius: 6px;
-`;
-
-export const StyledPassword = styled(Input.Password)`
   border: 1px solid #d8d6de;
   border-radius: 6px;
 `;
@@ -42,14 +36,10 @@ export const StyledTextlink = styled.a`
 
 export const SubtitledContainer = styled.div`
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
-export const AlertContainer = styled.div`
-  border: 0 solid transparent;
-  border-radius: 0.358rem;
-  background: ${theme.LOGIN_ALERT};
-  padding: 15px;
-  color: ${theme.LOGIN_ALERT_FONT};
-  margin-bottom: 20px;
+export const StyledPassword = styled(Input.Password)`
+  border: 1px solid #d8d6de;
+  border-radius: 6px;
 `;

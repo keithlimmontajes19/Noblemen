@@ -16,3 +16,10 @@ export const DUMMY_TEXT = 'Tiramisu marshmallow dessert halvah bonbon cake ginge
 export const DUMMY_DATA = `Hi! My name is Mittie and I have been working as a designer for 5 years across several business verticals. When I’m not designing intuitive user interactions, you can find me at the park playing with my dog :)`
 export const DESIGNS_APP = `Design and application specifics for your project`;
 export const WEBSITE_BRIEF = `Website Brief`;
+
+export const PASSWORD_CHANGE_ALERT = `Your password has been successfully changed.`
+export const VERIFICATION_ALERT = 'Your email address is verified! Please try to sign-in to your account.';
+export const REGISTER_ALERT = `Your account is registered! Please check your email address to verify the account.`
+export const PASSWORD_REGEX = `Password not valid.`;
+export const PASSWORD_NOT_MATCH = `Password does not match.`;
+export const FORGOT_PASSWORD = `Email has been sent. Please check your email for instructions to reset your password `
