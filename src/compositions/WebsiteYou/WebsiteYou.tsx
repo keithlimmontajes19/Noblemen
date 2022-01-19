@@ -5,22 +5,37 @@ import {InputStyled, LabelStyled} from './styled';
 import {Form} from 'antd';
 
 const WebsiteYou = (props: PropsType): ReactElement => {
+  const {setInitialValues, initialValues} = props;
+
+  const onChange = (e: any) => {
+    setInitialValues({
+      ...initialValues,
+      [e.target.id]: e.target.value,
+    });
+  };
+
   return (
     <Form layout="vertical">
-      <Form.Item label={<LabelStyled>Tell us about your brand.</LabelStyled>}>
-        <InputStyled />
-      </Form.Item>
       <Form.Item
+        name="you_tell_the_brand"
+        label={<LabelStyled>Tell us about your brand.</LabelStyled>}>
+        <InputStyled onChange={onChange} />
+      </Form.Item>
+
+      <Form.Item
+        name="you_what_products_service"
         label={
           <LabelStyled>What products or services do you provide?</LabelStyled>
         }>
-        <InputStyled />
+        <InputStyled onChange={onChange} />
       </Form.Item>
+
       <Form.Item
+        name="you_what_apart_competitors"
         label={
           <LabelStyled>What sets you apart from your competitors?</LabelStyled>
         }>
-        <InputStyled />
+        <InputStyled onChange={onChange} />
       </Form.Item>
     </Form>
   );

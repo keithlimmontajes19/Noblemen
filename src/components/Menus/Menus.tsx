@@ -23,14 +23,16 @@ const Menus = (props: PropsType): ReactElement => {
             activeKey === x?.key ? theme.WHITE : theme.DEFAULT;
 
           return x?.subTitle ? (
-            <Label
-              color={theme.SUBTITLE_GRAY}
-              bold={600}
-              size={12}
-              lineHeight={18}
-              key={x?.key}>
-              {x?.subTitle}
-            </Label>
+            <div style={{marginTop: 32}}>
+              <Label
+                color={theme.SUBTITLE_GRAY}
+                bold={600}
+                size={12}
+                lineHeight={18}
+                key={x?.key}>
+                {x?.subTitle}
+              </Label>
+            </div>
           ) : (
             <StyledMenuItem key={x?.key} activecolor={checkedActiveKey}>
               {!x?.subHeader ? (

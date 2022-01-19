@@ -18,35 +18,67 @@ import WebsiteYou from 'compositions/WebsiteYou';
 import WebsiteGoals from 'compositions/WebsiteGoals';
 import WebsiteAudience from 'compositions/WebsiteAudience';
 
-const WebsiteForms = ({page}) => {
+import {useSelector, useDispatch} from 'react-redux';
+import {postWebBriefOnboaring} from 'ducks/onboarding/actionCreator';
+
+const WebsiteForms = ({
+  page,
+  setPage,
+  setInitialValues,
+  initialValues,
+  handleSubmit,
+}) => {
   switch (page) {
+    case 0:
+      return (
+        <WebsiteYou
+          setInitialValues={setInitialValues}
+          initialValues={initialValues}
+        />
+      );
     case 1:
-      return <WebsiteGoals />;
+      return (
+        <WebsiteGoals
+          setInitialValues={setInitialValues}
+          initialValues={initialValues}
+        />
+      );
     case 2:
-      return <WebsiteAudience />;
+      return (
+        <WebsiteAudience
+          setInitialValues={setInitialValues}
+          initialValues={initialValues}
+        />
+      );
     default:
-      return <WebsiteYou />;
+      setPage(0);
+      handleSubmit();
+
+      return <></>;
   }
 };
 
 const ModalWebsiteBrief = (props: PropsType): ReactElement => {
+  const dispatch = useDispatch();
   const {visible, setVisible} = props;
+  const states = useSelector((state) => state);
 
   const [page, setPage] = useState(0);
   const [initialValues, setInitialValues] = useState({
-    youField1: '',
-    youField2: '',
-    youField3: '',
-    goalField1: '',
-    goalField2: '',
-    goalField3: '',
-    audienceField1: '',
-    audienceField2: '',
-    audienceField3: '',
+    you_tell_the_brand: '',
+    you_what_products_service: '',
+    you_what_apart_competitors: '',
+    goal_what_accomplish_new_website: '',
+    goal_what_accomplish_similar_goals: '',
+    goal_what_do_you_like_about_website: '',
+    audience_who_target: '',
+    audience_what_they_care: '',
+    audience_what_they_need_to_be_seen: '',
   });
 
   const handleSubmit = () => {
-    console.log(initialValues);
+    setVisible(false);
+    dispatch(postWebBriefOnboaring(initialValues));
   };
 
   useEffect(() => {
@@ -85,26 +117,32 @@ const ModalWebsiteBrief = (props: PropsType): ReactElement => {
               marginTop: 32,
               marginBottom: 32,
             }}>
-            <IconContainer>
+            <IconContainer background={page >= 1 ? '' : theme.SUBTITLE_GRAY}>
               <Command color={theme.WHITE} />
             </IconContainer>
-            <IconTitle>
+            <IconTitle title={page >= 1 ? '' : theme.BLACK}>
               Goal <br /> <IconSubtitle>What do you need?</IconSubtitle>
             </IconTitle>
           </Col>
 
           <Col span={24} style={{display: 'flex', flexDirection: 'row'}}>
-            <IconContainer>
+            <IconContainer background={page >= 2 ? '' : theme.SUBTITLE_GRAY}>
               <Columns color={theme.WHITE} />
             </IconContainer>
-            <IconTitle>
+            <IconTitle title={page >= 2 ? '' : theme.BLACK}>
               Audience <br /> <IconSubtitle>Who’s your user?</IconSubtitle>
             </IconTitle>
           </Col>
         </Col>
 
         <Col span={15}>
-          <WebsiteForms page={page} />
+          <WebsiteForms
+            page={page}
+            setPage={setPage}
+            setInitialValues={setInitialValues}
+            initialValues={initialValues}
+            handleSubmit={handleSubmit}
+          />
         </Col>
       </Row>
 
@@ -113,8 +151,9 @@ const ModalWebsiteBrief = (props: PropsType): ReactElement => {
           title="Next"
           width={98}
           onClick={() => {
-            page < 4 ? setPage(page + 1) : setVisible(false);
-            handleSubmit();
+            if (page < 3) {
+              setPage(page + 1);
+            }
           }}
         />
       </Col>

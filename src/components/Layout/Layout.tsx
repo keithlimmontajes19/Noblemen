@@ -13,7 +13,6 @@ import LoginLayout from 'views/public/LoginLayout';
 /* reducer action */
 import {useSelector, useDispatch} from 'react-redux';
 import {RootState} from 'ducks/store';
-import {checkTokenUser} from 'ducks/authentication/actionCreator';
 import {closeNotification} from 'ducks/alert/actionCreator';
 
 const ComponentLayout = (): ReactElement => {
@@ -28,7 +27,12 @@ const ComponentLayout = (): ReactElement => {
   }, [alert]);
 
   useEffect(() => {
-    // dispatch(checkTokenUser());
+    const token = sessionStorage.getItem('accessToken');
+    if (token) {
+      dispatch({type: 'GET_AUTHENTICATION_SUCCESS'});
+    } else {
+      dispatch({type: 'GET_AUTHENTICATION_FAILED'});
+    }
   }, []);
 
   return (

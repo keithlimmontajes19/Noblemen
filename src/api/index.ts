@@ -8,7 +8,8 @@ import axios from 'axios';
  */
 
 const config = {
-    baseURL: 'http://localhost:3001/api',
+    // baseURL: 'https://noblemen.herokuapp.com/api',
+    baseURL: 'http://localhost:8080/api',
     headers: {
         'Cache-Control': 'no-cache',
         'Content-Type': 'application/json; charset=utf-8'
@@ -47,6 +48,12 @@ axiosInstance.interceptors.response.use(
     },
 
     async function (error) {
+        if (error.response.status === 403) {
+            sessionStorage.clear();
+
+            return error;
+        }
+
         return Promise.reject(error);
     },
 );

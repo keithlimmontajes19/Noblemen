@@ -25,10 +25,11 @@ export const SyledSubtitle = styled.p`
   color: ${theme.ICONS};
 `;
 
-export const IconContainer = styled.div`
+export const IconContainer = styled.div<any>`
   height: 38px;
   width: 38px;
-  background: #7890ff;
+  background: ${(props): any =>
+    props.background ? props.background : '#7890ff'};
   border-radius: 6px;
   padding: 7px;
 `;
@@ -39,7 +40,7 @@ export const IconTitle = styled.p`
   font-weight: normal;
   font-size: 14px;
   line-height: 21px;
-  color: #4561e1;
+  color: ${(props) => (props.title ? props.title : '#4561e1')};
   margin-left: 12px;
 `;
 

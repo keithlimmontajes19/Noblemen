@@ -12,7 +12,7 @@ const Navigation = () => {
       <Route exact path="/" component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/forgot" component={ForgotPassword} />
-      <Route exact path="/change-password" component={ChangePassword} />
+      <Route path="/password" component={ChangePassword} />
       <Redirect to="/" />
     </Switch>
   );

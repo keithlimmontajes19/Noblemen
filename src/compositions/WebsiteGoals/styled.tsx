@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import {Input} from 'antd';
 
 export const Container = styled.div``;
-export const InputStyled = styled.input`
+export const InputStyled = styled(Input.TextArea)`
   border: 1px solid #d8d6de;
   border-radius: 6px;
   height: 70px;
