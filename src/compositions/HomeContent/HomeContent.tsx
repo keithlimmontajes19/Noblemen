@@ -98,7 +98,16 @@ const HomeContent = (props: PropsType): ReactElement => {
               <Container>
                 <FlexContainer>
                   <StyledText3>How To Energize Yourself </StyledText3>
-                  Done
+                  <Button
+                    title="Start"
+                    icon={
+                      <Edit
+                        color={theme.WHITE}
+                        style={{marginTop: -5}}
+                        size={14}
+                      />
+                    }
+                  />
                 </FlexContainer>
               </Container>
               <Container>
@@ -106,7 +115,16 @@ const HomeContent = (props: PropsType): ReactElement => {
                   <StyledText3>
                     An Ugly Myspace Profile Will Sure Ruin Your Reputation
                   </StyledText3>
-                  Mark Complete
+                  <Button
+                    title="Start"
+                    icon={
+                      <Edit
+                        color={theme.WHITE}
+                        style={{marginTop: -5}}
+                        size={14}
+                      />
+                    }
+                  />
                 </FlexContainer>
               </Container>
               <Container>
@@ -114,7 +132,16 @@ const HomeContent = (props: PropsType): ReactElement => {
                   <StyledText3>
                     Making A New Trend In Poster Printing
                   </StyledText3>
-                  Mark Complete
+                  <Button
+                    title="Start"
+                    icon={
+                      <Edit
+                        color={theme.WHITE}
+                        style={{marginTop: -5}}
+                        size={14}
+                      />
+                    }
+                  />
                 </FlexContainer>
               </Container>
             </Card>

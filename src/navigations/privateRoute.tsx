@@ -12,7 +12,7 @@ import Account from 'views/private/Account';
 const Navigation = () => {
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route exact path="/" component={Home} />
       <Route path="/home" component={Home} />
       <Route path="/website" component={Desktop} />
       <Route path="/mobile" component={Mobile} />

@@ -8,8 +8,8 @@ import axios from 'axios';
  */
 
 const config = {
-    // baseURL: 'https://noblemen.herokuapp.com/api',
-    baseURL: 'http://localhost:8080/api',
+    baseURL: 'https://noblemen.herokuapp.com/api',
+    // baseURL: 'http://localhost:8080/api',
     headers: {
         'Cache-Control': 'no-cache',
         'Content-Type': 'application/json; charset=utf-8'
@@ -39,18 +39,10 @@ axiosInstance.interceptors.request.use(
 );
 
 axiosInstance.interceptors.response.use(
-    async (requestConfig) => {
-        requestConfig.headers = {
-            Authorization: `Bearer ${accessToken}`,
-        };
-
-        return requestConfig;
-    },
-
+    async (requestConfig) => requestConfig,
     async function (error) {
         if (error.response.status === 403) {
             sessionStorage.clear();
-
             return error;
         }
 
