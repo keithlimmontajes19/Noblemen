@@ -26,6 +26,8 @@ import {
 import Card from 'components/Card';
 import Avatar from 'components/Avatar';
 import Button from 'components/Button';
+import {Check} from 'react-feather';
+import {LabelStyled} from 'compositions/WebsiteGoals/styled';
 
 const {Panel} = Collapse;
 
@@ -49,6 +51,7 @@ const HomeContent = (props: PropsType): ReactElement => {
                 <FlexContainer>
                   <StyledText3>Complete your Project Brief</StyledText3>
                   <Button
+                    width={90}
                     onClick={() => setVisible(true)}
                     title="Start"
                     icon={
@@ -66,7 +69,9 @@ const HomeContent = (props: PropsType): ReactElement => {
                   <StyledText3>
                     Provide your logos, icons, images, and color palette
                   </StyledText3>
+                  <div style={{marginLeft: 20}} />
                   <Button
+                    width={90}
                     onClick={() => setVisible2(true)}
                     title="Start"
                     icon={
@@ -83,6 +88,7 @@ const HomeContent = (props: PropsType): ReactElement => {
                 <FlexContainer>
                   <StyledText3>Complete your Visual Voice guide</StyledText3>
                   <Button
+                    width={90}
                     onClick={() => setVisible3(true)}
                     title="Start"
                     icon={
@@ -98,16 +104,9 @@ const HomeContent = (props: PropsType): ReactElement => {
               <Container>
                 <FlexContainer>
                   <StyledText3>How To Energize Yourself </StyledText3>
-                  <Button
-                    title="Start"
-                    icon={
-                      <Edit
-                        color={theme.WHITE}
-                        style={{marginTop: -5}}
-                        size={14}
-                      />
-                    }
-                  />
+                  <LabelStyled color={theme.GREEN}>
+                    <Check size={12} /> Done
+                  </LabelStyled>
                 </FlexContainer>
               </Container>
               <Container>
@@ -115,16 +114,12 @@ const HomeContent = (props: PropsType): ReactElement => {
                   <StyledText3>
                     An Ugly Myspace Profile Will Sure Ruin Your Reputation
                   </StyledText3>
-                  <Button
-                    title="Start"
-                    icon={
-                      <Edit
-                        color={theme.WHITE}
-                        style={{marginTop: -5}}
-                        size={14}
-                      />
-                    }
-                  />
+
+                  <div style={{marginLeft: 20}} />
+
+                  <LabelStyled color={theme.GREEN}>
+                    <Check size={12} /> Done
+                  </LabelStyled>
                 </FlexContainer>
               </Container>
               <Container>
@@ -132,16 +127,9 @@ const HomeContent = (props: PropsType): ReactElement => {
                   <StyledText3>
                     Making A New Trend In Poster Printing
                   </StyledText3>
-                  <Button
-                    title="Start"
-                    icon={
-                      <Edit
-                        color={theme.WHITE}
-                        style={{marginTop: -5}}
-                        size={14}
-                      />
-                    }
-                  />
+                  <LabelStyled color={theme.GREEN}>
+                    <Check size={12} /> Done
+                  </LabelStyled>
                 </FlexContainer>
               </Container>
             </Card>

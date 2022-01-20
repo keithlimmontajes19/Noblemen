@@ -9,5 +9,7 @@ export const theme = {
     MODAL: '#e9e9e9',
     LOGIN_LAYOUT: '#f8f8f8',
     LOGIN_ALERT: '#eeedfd',
-    LOGIN_ALERT_FONT: '#7367f0'
+    LOGIN_ALERT_FONT: '#7367f0',
+    GREEN: '#28C76F',
+    IMAGE_TEXT: '#6E6B7B'
 }

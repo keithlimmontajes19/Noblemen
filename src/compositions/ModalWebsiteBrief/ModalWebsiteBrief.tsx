@@ -1,4 +1,4 @@
-import {ReactElement, useState, useEffect} from 'react';
+import {ReactElement, useState} from 'react';
 
 import type {PropsType} from './types';
 import {
@@ -18,7 +18,7 @@ import WebsiteYou from 'compositions/WebsiteYou';
 import WebsiteGoals from 'compositions/WebsiteGoals';
 import WebsiteAudience from 'compositions/WebsiteAudience';
 
-import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {postWebBriefOnboaring} from 'ducks/onboarding/actionCreator';
 
 const WebsiteForms = ({
@@ -61,7 +61,6 @@ const WebsiteForms = ({
 const ModalWebsiteBrief = (props: PropsType): ReactElement => {
   const dispatch = useDispatch();
   const {visible, setVisible} = props;
-  const states = useSelector((state) => state);
 
   const [page, setPage] = useState(0);
   const [initialValues, setInitialValues] = useState({
@@ -81,10 +80,6 @@ const ModalWebsiteBrief = (props: PropsType): ReactElement => {
     dispatch(postWebBriefOnboaring(initialValues));
   };
 
-  useEffect(() => {
-    setVisible(0);
-  }, []);
-
   return (
     <Modal
       afterClose={() => setPage(0)}
@@ -93,7 +88,10 @@ const ModalWebsiteBrief = (props: PropsType): ReactElement => {
       footer={false}
       centered={true}
       closable={false}
-      onCancel={() => setVisible(false)}
+      onCancel={() => {
+        setPage(0);
+        setVisible(false);
+      }}
       maskStyle={{background: theme.MODAL}}>
       <StyledTitle>{WEBSITE_BRIEF}</StyledTitle>
       <SyledSubtitle>{DESIGNS_APP}</SyledSubtitle>

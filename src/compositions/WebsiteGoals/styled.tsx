@@ -15,5 +15,5 @@ export const LabelStyled = styled.span`
   font-weight: normal;
   font-size: 14px;
   line-height: 20px;
-  color: #5e5873;
+  color: ${(props) => (props.color ? props.color : '#5e5873')};
 `;

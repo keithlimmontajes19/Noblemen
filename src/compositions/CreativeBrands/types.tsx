@@ -1,3 +1,5 @@
 export type PropsType = {
-  testID?: string,
+  testID?: string;
+  setInitialValues?: any;
+  initialValues?: any;
 };

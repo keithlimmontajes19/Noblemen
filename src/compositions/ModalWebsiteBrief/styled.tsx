@@ -3,13 +3,13 @@ import {theme} from 'utils/colors';
 
 export const Container = styled.div``;
 
-export const StyledTitle = styled.p`
+export const StyledTitle = styled.p<any>`
   font-family: Raleway;
   font-style: normal;
   font-weight: bold;
   font-size: 28px;
   line-height: 33px;
-  text-align: center;
+  text-align: ${(props) => (props.align ? props.align : 'center')};
   font-feature-settings: 'pnum' on, 'lnum' on;
   color: ${theme.BLACK};
 `;
