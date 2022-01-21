@@ -10,6 +10,10 @@ import {
 import {LabelStyled} from 'compositions/WebsiteGoals/styled';
 import {Input, Row, Col} from 'antd';
 
+// TODO:
+// exports: AlphaPicker, BlockPicker, ChromePicker, CirclePicker, CompactPicker, CustomPicker, GithubPicker, GooglePicker, HuePicker, MaterialPicker, PhotoshopPicker, SketchPicker, SliderPicker, SwatchesPicker, TwitterPicker, default)
+// import {BlockPicker} from 'react-color';
+
 const CreativeColors = (props: PropsType): ReactElement => {
   const {initialValues, setInitialValues} = props;
   const {colors} = initialValues;
@@ -52,7 +56,11 @@ const CreativeColors = (props: PropsType): ReactElement => {
                 </div>
                 <div style={inputContainerStyles}>
                   <Input
-                    style={{height: 20, alignSelf: 'center'}}
+                    style={{
+                      height: 20,
+                      alignSelf: 'center',
+                      textAlign: 'center',
+                    }}
                     onChange={(e) => onChange(e.target.value, index)}
                   />
                 </div>
@@ -63,6 +71,7 @@ const CreativeColors = (props: PropsType): ReactElement => {
       </div>
 
       <div style={{marginTop: 14}} />
+
       <LinkButton style={{marginTop: 10}} onClick={addColor}>
         + Add Colors
       </LinkButton>

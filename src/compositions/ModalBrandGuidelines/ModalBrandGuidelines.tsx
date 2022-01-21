@@ -9,9 +9,9 @@ const ModalBrandGuidelines = (props: PropsType): ReactElement => {
   const {visible, setVisible} = props;
   return (
     <Modal
-      // afterClose={() => setPage(0)}
       width={800}
-      visible={visible}
+      // Default false not yet done with the flow
+      visible={false}
       footer={false}
       centered={true}
       closable={false}

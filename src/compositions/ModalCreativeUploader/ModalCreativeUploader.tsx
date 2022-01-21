@@ -19,6 +19,10 @@ import CreativeColors from 'compositions/CreativeColors';
 import CreativeBrands from 'compositions/CreativeBrands';
 import Button from 'components/Button';
 
+/* reducer action */
+import {postCreativeProvider} from 'ducks/onboarding/actionCreator';
+import {useDispatch} from 'react-redux';
+
 const CreativeForms = ({
   page,
   setPage,
@@ -58,6 +62,12 @@ const CreativeForms = ({
 
 const ModalCreativeUploader = (props: PropsType): ReactElement => {
   const {visible, setVisible} = props;
+  const dispatch = useDispatch();
+
+  /*
+   * TODO:
+   * catch error if not succes dont close the modal
+   */
 
   const [page, setPage] = useState(0);
   const [initialValues, setInitialValues] = useState({
@@ -72,9 +82,9 @@ const ModalCreativeUploader = (props: PropsType): ReactElement => {
 
   const handleSubmit = () => {
     setVisible(false);
+    dispatch(postCreativeProvider(initialValues));
   };
 
-  console.log('initialValues', initialValues);
   return (
     <Modal
       width={700}

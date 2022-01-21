@@ -5,3 +5,7 @@ export const postWebBriefOnboaring = (payload: any) => ({
     payload
 })
 
+export const postCreativeProvider = (payload: any) => ({
+    type: TYPES.POST_CREATIVE_PROVIDER_REQUEST,
+    payload
+})
