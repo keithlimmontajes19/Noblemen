@@ -1,12 +1,16 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import store from 'ducks/store';
+import {store, persist} from 'ducks/store';
+import {PersistGate} from 'redux-persist/integration/react';
+
 import Layout from 'components/Layout';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <Layout />
+      <PersistGate loading={null} persistor={persist}>
+        <Layout />
+      </PersistGate>
     </Provider>
   );
 };

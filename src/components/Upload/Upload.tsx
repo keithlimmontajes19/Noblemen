@@ -8,7 +8,7 @@ const {Dragger} = Upload;
 
 const UploadComponent = (props: PropsType): ReactElement => {
   const {setFileList} = props;
-  const accessToken = sessionStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem('accessToken');
   const API_URL = 'http://localhost:8080/api/file/post';
 
   const uploadInnerProps = {

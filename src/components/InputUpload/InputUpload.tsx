@@ -7,7 +7,7 @@ import {Upload, message} from 'antd';
 const InputUpload = (props: PropsType): ReactElement => {
   const {setFileId} = props;
 
-  const accessToken = sessionStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem('accessToken');
   const API_URL = 'http://localhost:8080/api/file/post';
 
   const [fileName, setFileName] = useState('');

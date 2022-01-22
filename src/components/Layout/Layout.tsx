@@ -1,5 +1,5 @@
 import {ReactElement, useEffect} from 'react';
-import {Router} from 'react-router-dom';
+import {Redirect, Router} from 'react-router-dom';
 
 /* styles utils*/
 import {} from './styled';
@@ -14,10 +14,12 @@ import LoginLayout from 'views/public/LoginLayout';
 import {useSelector, useDispatch} from 'react-redux';
 import {RootState} from 'ducks/store';
 import {closeNotification} from 'ducks/alert/actionCreator';
+import {getUserDetails} from 'ducks/authentication/actionCreator';
 
 const ComponentLayout = (): ReactElement => {
   const dispatch = useDispatch();
   const {authentication, alert}: any = useSelector<RootState>((state) => state);
+  const token = localStorage.getItem('accessToken');
 
   useEffect(() => {
     alert.onShow &&
@@ -27,9 +29,9 @@ const ComponentLayout = (): ReactElement => {
   }, [alert]);
 
   useEffect(() => {
-    const token = sessionStorage.getItem('accessToken');
     if (token) {
       dispatch({type: 'GET_AUTHENTICATION_SUCCESS'});
+      dispatch(getUserDetails());
     } else {
       dispatch({type: 'GET_AUTHENTICATION_FAILED'});
     }
@@ -37,6 +39,7 @@ const ComponentLayout = (): ReactElement => {
 
   return (
     <Router history={history}>
+      {token && authentication.authenticated && <Redirect to="/home" />}
       {authentication.authenticated ? <MainLayout /> : <LoginLayout />}
     </Router>
   );

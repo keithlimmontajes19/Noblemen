@@ -28,3 +28,7 @@ export const forgotPassword = (payload) => ({
     type: TYPES.FORGOT_PASSWORD_REQUEST,
     payload
 })
+
+export const getUserDetails = () => ({
+    type: TYPES.GET_USER_DETAILS_REQUEST,
+})

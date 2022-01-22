@@ -10,6 +10,14 @@ import {
   StyledCol2,
   StyledText3,
   FlexContainer,
+  PanelStyledText,
+  AvatarStyledText,
+  AvatarNameText,
+  AvaratPositionText,
+  ColStyles,
+  CollapseContainer,
+  AvatarContainer,
+  AvatarPositionContainer,
 } from './styled';
 import {Row, Col, Collapse} from 'antd';
 import {Edit} from 'react-feather';
@@ -27,6 +35,7 @@ import Card from 'components/Card';
 import Avatar from 'components/Avatar';
 import Button from 'components/Button';
 import {Check} from 'react-feather';
+
 import {LabelStyled} from 'compositions/WebsiteGoals/styled';
 
 const {Panel} = Collapse;
@@ -104,9 +113,11 @@ const HomeContent = (props: PropsType): ReactElement => {
               <Container>
                 <FlexContainer>
                   <StyledText3>How To Energize Yourself </StyledText3>
-                  <LabelStyled color={theme.GREEN}>
-                    <Check size={12} /> Done
-                  </LabelStyled>
+                  <div style={{paddingRight: 20}}>
+                    <LabelStyled color={theme.GREEN}>
+                      <Check size={14} /> Done
+                    </LabelStyled>
+                  </div>
                 </FlexContainer>
               </Container>
               <Container>
@@ -114,12 +125,12 @@ const HomeContent = (props: PropsType): ReactElement => {
                   <StyledText3>
                     An Ugly Myspace Profile Will Sure Ruin Your Reputation
                   </StyledText3>
-
                   <div style={{marginLeft: 20}} />
-
-                  <LabelStyled color={theme.GREEN}>
-                    <Check size={12} /> Done
-                  </LabelStyled>
+                  <div style={{paddingRight: 20}}>
+                    <LabelStyled color={theme.GREEN}>
+                      <Check size={14} /> Done
+                    </LabelStyled>
+                  </div>
                 </FlexContainer>
               </Container>
               <Container>
@@ -127,63 +138,82 @@ const HomeContent = (props: PropsType): ReactElement => {
                   <StyledText3>
                     Making A New Trend In Poster Printing
                   </StyledText3>
-                  <LabelStyled color={theme.GREEN}>
-                    <Check size={12} /> Done
-                  </LabelStyled>
+                  <div style={{paddingRight: 20}}>
+                    <LabelStyled color={theme.GREEN}>
+                      <Check size={14} /> Done
+                    </LabelStyled>
+                  </div>
                 </FlexContainer>
               </Container>
             </Card>
           </Col>
 
-          <Col style={{paddingTop: 34, paddingBottom: 12}}>
+          <Col style={ColStyles}>
             <Collapse bordered={false}>
               <Panel header={Header(TITLE_1)} key="1">
-                <Card>
-                  <p>{DUMMY_TEXT}</p>
-                </Card>
+                <PanelStyledText>{DUMMY_TEXT}</PanelStyledText>
               </Panel>
             </Collapse>
 
-            <div style={{marginTop: 12, marginBottom: 12}}>
+            <CollapseContainer>
               <Collapse bordered={false}>
                 <Panel header={Header(TITLE_2)} key="1">
-                  <Card>
-                    <p>{DUMMY_TEXT}</p>
-                  </Card>
+                  <PanelStyledText>{DUMMY_TEXT}</PanelStyledText>
                 </Panel>
               </Collapse>
-            </div>
+            </CollapseContainer>
 
             <Collapse bordered={false}>
               <Panel header={Header(TITLE_3)} key="1">
-                <Card>
-                  <p>{DUMMY_TEXT}</p>
-                </Card>
+                <PanelStyledText>{DUMMY_TEXT}</PanelStyledText>
               </Panel>
             </Collapse>
           </Col>
         </Col>
 
         <Col span={12}>
-          <StyledTitle2>Your Team</StyledTitle2>
+          <div style={{marginBottom: 10}}>
+            <StyledTitle2>Your Team</StyledTitle2>
+          </div>
+
           <Card>
             <StyledCol2>
-              <Avatar />
-              <p>{DUMMY_DATA}</p>
+              <AvatarContainer>
+                <Avatar />
+                <AvatarPositionContainer>
+                  <AvatarNameText>Mittie Evans</AvatarNameText>
+                  <AvaratPositionText>Mittie Evans</AvaratPositionText>
+                </AvatarPositionContainer>
+              </AvatarContainer>
+              <AvatarStyledText>{DUMMY_DATA}</AvatarStyledText>
             </StyledCol2>
           </Card>
+
           <div style={{marginBottom: 18, marginTop: 18}}>
             <Card>
               <StyledCol2>
-                <Avatar />
-                <p>{DUMMY_DATA}</p>
+                <AvatarContainer>
+                  <Avatar />
+                  <AvatarPositionContainer>
+                    <AvatarNameText>Mittie Evans</AvatarNameText>
+                    <AvaratPositionText>Mittie Evans</AvaratPositionText>
+                  </AvatarPositionContainer>
+                </AvatarContainer>
+                <AvatarStyledText>{DUMMY_DATA}</AvatarStyledText>
               </StyledCol2>
             </Card>
           </div>
+
           <Card>
             <StyledCol2>
-              <Avatar />
-              <p>{DUMMY_DATA}</p>
+              <AvatarContainer>
+                <Avatar />
+                <AvatarPositionContainer>
+                  <AvatarNameText>Mittie Evans</AvatarNameText>
+                  <AvaratPositionText>Mittie Evans</AvaratPositionText>
+                </AvatarPositionContainer>
+              </AvatarContainer>
+              <AvatarStyledText>{DUMMY_DATA}</AvatarStyledText>
             </StyledCol2>
           </Card>
         </Col>

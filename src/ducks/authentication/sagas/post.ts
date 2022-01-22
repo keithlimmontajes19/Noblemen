@@ -7,7 +7,7 @@ import history from 'utils/history';
 export function* postLogin({ payload }: never) {
   try {
     const response = yield call(auth_services.postLogin, payload);
-    sessionStorage.setItem('accessToken', response.data.data)
+    localStorage.setItem('accessToken', response.data.data)
 
     yield put({ type: TYPES.GET_AUTHENTICATION_SUCCESS, payload: response.data });
   } catch (e) {
@@ -63,10 +63,22 @@ export function* forgotPassword({ payload }: never) {
   }
 }
 
+export function* getUserDetails() {
+  console.log('calling')
+  try {
+    const response = yield call(auth_services.getUserDetails);
+    yield put({ type: TYPES.GET_USER_DETAILS_SUCCESS, payload: response.data.data });
+  } catch (e) {
+    yield put({ type: TYPES.GET_USER_DETAILS_FAILED });
+  }
+}
+
+
 export default function* watcher() {
   yield takeLatest(TYPES.GET_AUTHENTICATION_REQUEST, postLogin);
   yield takeLatest(TYPES.POST_SIGNUP_REQUEST, postSignup);
   yield takeLatest(TYPES.TOKEN_CHECKER_REQUEST, tokenChecker);
   yield takeLatest(TYPES.CHANGE_PASSWORD_REQUEST, changePassword);
   yield takeLatest(TYPES.FORGOT_PASSWORD_REQUEST, forgotPassword);
+  yield takeLatest(TYPES.GET_USER_DETAILS_REQUEST, getUserDetails);
 }

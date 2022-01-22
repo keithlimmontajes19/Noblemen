@@ -60,3 +60,60 @@ export const FlexContainer = styled.div`
   flex: 1;
   flex-direction: row;
 `;
+
+export const PanelStyledText = styled.p`
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  display: flex;
+  align-self: flex-end;
+  color: #6e6b7b;
+  padding-left: 25px;
+`;
+
+export const AvatarStyledText = styled.p`
+  font-family: Didact Gothic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+  color: #6e6b7b;
+  margin-left: 5px;
+`;
+
+export const AvatarNameText = styled.span`
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  color: #5e5873;
+`;
+
+export const AvaratPositionText = styled.p`
+  font-family: Didact Gothic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #b9b9c3;
+`;
+
+export const ColStyles = {paddingTop: 34, paddingBottom: 12};
+export const CollapseContainer = styled.div`
+  margin-top: 12px;
+  margin-bottom: 12px;
+`;
+
+export const AvatarContainer = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const AvatarPositionContainer = styled.div`
+  margin-top: -5px;
+  margin-left: 13px;
+`;

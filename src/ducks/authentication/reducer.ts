@@ -5,7 +5,8 @@ const INITIAL_STATE = {
   loading: false,
   authenticated: false,
   data: {},
-  password_change: 0
+  password_change: 0,
+  user_details: {}
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -20,6 +21,7 @@ const reducer = (state = INITIAL_STATE, action) => {
 
     case TYPES.GET_AUTHENTICATION_SUCCESS:
       return {
+        ...state,
         data: action.payload,
         error: false,
         loading: false,
@@ -28,6 +30,7 @@ const reducer = (state = INITIAL_STATE, action) => {
 
     case TYPES.GET_AUTHENTICATION_FAILED:
       return {
+        ...state,
         data: action.payload,
         error: true,
         loading: false,
@@ -41,6 +44,18 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         authenticated: false,
         password_change: action.payload
+      };
+
+    case TYPES.GET_USER_DETAILS_SUCCESS:
+      return {
+        ...state,
+        user_details: action.payload
+      };
+
+    case TYPES.GET_USER_DETAILS_FAILED:
+      return {
+        ...state,
+        user_details: {}
       };
 
     default:

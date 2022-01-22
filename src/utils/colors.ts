@@ -11,5 +11,5 @@ export const theme = {
     LOGIN_ALERT: '#eeedfd',
     LOGIN_ALERT_FONT: '#7367f0',
     GREEN: '#28C76F',
-    IMAGE_TEXT: '#6E6B7B'
+    IMAGE_TEXT: '#6E6B7B',
 }

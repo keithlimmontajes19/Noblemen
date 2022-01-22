@@ -6,7 +6,8 @@ const auth_services = {
     postSignup: (params) => api.post(`${AUTHENTICATION}/signup`, params),
     postForgotPassword: (params) => api.post(`${AUTHENTICATION}/forgot`, params),
     postChangepassowrd: (params) => api.post(`${AUTHENTICATION}/changePassword`, params),
-    tokenChecker: () => api.get(`${USER}/token`)
+    tokenChecker: () => api.get(`${USER}/token`),
+    getUserDetails: () => api.get(`${USER}/getOne`)
 }
 
 export default auth_services;

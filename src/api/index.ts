@@ -24,11 +24,11 @@ const config = {
  */
 
 export const axiosInstance = axios.create(config);
-export const accessToken = sessionStorage.getItem('accessToken');
+export const accessToken = localStorage.getItem('accessToken');
 
 axiosInstance.interceptors.request.use(
     async (requestConfig) => {
-        const accessToken = sessionStorage.getItem('accessToken');
+        const accessToken = localStorage.getItem('accessToken');
         if (accessToken) {
             requestConfig.headers.Authorization = `Bearer ${accessToken}`;
         }
@@ -47,7 +47,7 @@ axiosInstance.interceptors.response.use(
     async (requestConfig) => requestConfig,
     async function (error) {
         if (error.response.status === 403) {
-            sessionStorage.clear();
+            localStorage.clear();
             return error;
         }
 
