@@ -8,8 +8,8 @@ import axios from 'axios';
  */
 
 const config = {
-    // baseURL: 'https://noblemen.herokuapp.com/api',
-    baseURL: 'http://localhost:8080/api',
+    baseURL: 'https://noblemen.herokuapp.com/api',
+    // baseURL: 'http://localhost:8080/api',
     headers: {
         'Cache-Control': 'no-cache',
         'Content-Type': 'application/json; charset=utf-8'

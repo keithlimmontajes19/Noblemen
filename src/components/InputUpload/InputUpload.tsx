@@ -8,7 +8,8 @@ const InputUpload = (props: PropsType): ReactElement => {
   const {setFileId} = props;
 
   const accessToken = localStorage.getItem('accessToken');
-  const API_URL = 'http://localhost:8080/api/file/post';
+  // const API_URL = 'http://localhost:8080/api/file/post';
+  const API_URL = 'https://noblemen.herokuapp.com/api/file/post';
 
   const [fileName, setFileName] = useState('');
 
